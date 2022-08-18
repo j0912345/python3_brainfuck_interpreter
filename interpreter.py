@@ -19,7 +19,7 @@ def interpreter(bf_input_code, enter_to_exit=False, return_output=False):
     bf_code_len = len(bf_input_code)
     data_pointer = 0
     data_list = []
-    cells = 100000
+    cells = 100001
     done_loop = None
     # inst_pointer always gets 1 added to it every loop. so on loop 0, the inst_pointer will be 0 because -1 + 1 = 0
     inst_pointer = -1
@@ -37,6 +37,7 @@ def interpreter(bf_input_code, enter_to_exit=False, return_output=False):
                 printed_output = calued_data
                 print(calued_data, end="")
             case "+":
+#                print(data_pointer)
                 data_list[data_pointer] = data_list[data_pointer] + 1
                 if data_list[data_pointer] > 255:
                     data_list[data_pointer] = 0
@@ -46,11 +47,11 @@ def interpreter(bf_input_code, enter_to_exit=False, return_output=False):
                     data_list[data_pointer] = 255
             case ">":
                 data_pointer = data_pointer + 1
-                if data_pointer > cells:
+                if data_pointer >= cells:
                     data_pointer = 0
             case "<":
                 data_pointer = data_pointer - 1
-                if data_pointer < 0:
+                if data_pointer <= 0:
                     data_pointer = cells
             case ",":
                 data_list[data_pointer] = int(input("input hex byte: ").encode(), 16)
