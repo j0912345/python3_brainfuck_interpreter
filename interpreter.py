@@ -54,7 +54,7 @@ def interpreter(bf_input_code, enter_to_exit=False, return_output=False):
                 if data_pointer <= 0:
                     data_pointer = cells
             case ",":
-                data_list[data_pointer] = int(input("input hex byte: ").encode(), 16)
+                data_list[data_pointer] = int(input("").encode(), 16)
             case "[":   
                 current_loop_list_item = current_loop_list_item + 1
 #                current_loop_list_item = current_loop_list_item + 1
